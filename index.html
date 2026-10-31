@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#09090c">
+<title>ZIZO FITNESS</title>
+<style>
+:root{--bg:#09090c;--panel:#15151c;--panel2:#20202a;--text:#fff;--muted:#aaaab5;--red:#ed1c24;--line:#30303b;--green:#31c48d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+button,input,select{font:inherit}button{border:0;border-radius:12px;padding:12px 15px;background:var(--red);color:white;font-weight:700;cursor:pointer}
+button.alt{background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+button:disabled{opacity:.45;cursor:not-allowed}
+header{padding:18px;background:linear-gradient(135deg,#260b10,#101015);border-bottom:1px solid #4a171e;position:sticky;top:0;z-index:5}
+.head{max-width:900px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-size:23px;font-weight:900;letter-spacing:1px}.brand span{color:var(--red)}.sub{font-size:12px;color:var(--muted);margin-top:5px}
+main{max-width:900px;margin:auto;padding:15px}.hidden{display:none!important}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:16px;margin:13px 0}
+.hero{background:linear-gradient(125deg,#351016,#19131a);border-color:#67212b;padding:20px}
+h1,h2,h3,p{margin-top:0}h2{font-size:19px;margin-bottom:12px}h3{font-size:15px}
+.muted{color:var(--muted);font-size:12px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.stat{font-size:26px;font-weight:900;margin:8px 0}.tile{background:var(--panel2);padding:13px;border-radius:13px;border:1px solid var(--line)}
+input,select{width:100%;padding:12px;background:#0e0e13;border:1px solid var(--line);border-radius:10px;color:var(--text);margin:6px 0 12px}
+label{font-size:13px;color:var(--muted)}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>*{flex:1}
+nav{display:flex;gap:7px;overflow:auto;padding:9px 0;position:sticky;top:69px;background:var(--bg);z-index:4}
+nav button{white-space:nowrap;padding:10px 13px;font-size:13px}
+.exercise{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:12px 0}
+.exercise:last-child{border:0}.exercise small{display:block;color:var(--muted);margin-top:5px}
+.chip{font-size:11px;color:#ff9ba0;background:#351116;padding:5px 8px;border-radius:20px}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}.day{background:var(--panel2);padding:9px 2px;border-radius:9px;font-size:11px;color:var(--muted)}.day.done{background:#48151c;color:#ff9ba0;border:1px solid #84242e}
+.timer{font-size:44px;text-align:center;font-weight:900;margin:15px}
+.progress{height:9px;background:#30303b;border-radius:9px;overflow:hidden}.progress span{display:block;height:100%;background:var(--red);width:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}.small{font-size:12px;padding:9px 11px}
+.demo{height:145px;border-radius:13px;background:radial-gradient(circle,#321116,#121217);display:flex;align-items:center;justify-content:center;margin:12px 0;overflow:hidden}
+.figure{position:relative;width:90px;height:110px;animation:bob 1.1s ease-in-out infinite alternate}
+.figure:before{content:"";position:absolute;width:22px;height:22px;border:4px solid #eee;border-radius:50%;left:34px;top:3px}
+.bodyline{position:absolute;width:7px;height:43px;background:#eee;left:42px;top:29px;border-radius:8px}
+.arm{position:absolute;width:43px;height:6px;background:#eee;top:42px;left:4px;transform:rotate(-25deg);border-radius:8px}
+.arm.r{left:44px;transform:rotate(25deg)}
+.leg{position:absolute;width:6px;height:43px;background:#eee;left:31px;top:67px;transform:rotate(22deg);border-radius:8px}
+.leg.r{left:49px;transform:rotate(-22deg)}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(5px)}}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:25px}
+.light{--bg:#f3f3f5;--panel:#fff;--panel2:#eeeef2;--text:#18181e;--muted:#656572;--line:#dddde4}
+.light input,.light select{background:#fff;color:#18181e}
+@media(min-width:650px){main{padding:22px}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header><div class="head"><div><div class="brand">ZIZO <span>FITNESS</span></div><div class="sub">قوتك بتبدأ من هنا 💪</div></div><span class="chip">الإصدار 2.0</span></div></header>
+<main>
+<section id="login" class="panel hero">
+<h2>أهلاً بيك في ZIZO FITNESS</h2><p class="muted">سجّل دخول محلي على الجهاز لفتح لوحة التطبيق التجريبية.</p>
+<label>اسم المستخدم</label><input id="username" placeholder="اكتب اسمك">
+<label>كلمة مرور للتجربة</label><input id="password" type="password" placeholder="اختار كلمة مرور">
+<button onclick="login()">دخول للتطبيق</button>
+<p class="muted">تنبيه: ده دخول تجريبي محفوظ على الجهاز فقط، مش حساب آمن أو تسجيل Google/Facebook حقيقي.</p>
+</section>
+<div id="app" class="hidden">
+<section class="panel hero"><h2 id="welcome">جاهز تكسر حدودك؟</h2><p>تمارين منزلية بوزن الجسم ومن غير أجهزة جيم. تابع تقدمك خطوة بخطوة.</p><button onclick="show('workouts')">ابدأ تمرينك</button></section>
+<nav>
+<button class="small" onclick="show('home')">الرئيسية</button><button class="small" onclick="show('workouts')">التمارين</button><button class="small" onclick="show('plan')">الجدول</button><button class="small" onclick="show('food')">التغذية</button><button class="small" onclick="show('progress')">رحلتي</button><button class="small" onclick="show('settings')">الإعدادات</button>
+</nav>
+<section id="home" class="page">
+<h2>ملخص نشاطك</h2><div class="grid">
+<div class="tile"><div class="muted">أيام التمرين</div><div class="stat" id="daysStat">0</div></div>
+<div class="tile"><div class="muted">الوزن الحالي</div><div class="stat" id="weightStat">--</div></div>
+<div class="tile"><div class="muted">المياه اليوم</div><div class="stat" id="waterStat">0</div><div class="muted">كوب</div></div>
+<div class="tile"><div class="muted">نقاط XP</div><div class="stat" id="xpStat">0</div></div></div>
+<div class="panel"><h2>تحدي النهارده</h2><p id="challenge" class="muted">ابدأ بجولة خفيفة وسجل إنجازك بعد التمرين.</p><button onclick="show('workouts')">شوف التمارين</button></div>
+<div class="panel"><h2>شرب المياه</h2><div class="row"><button onclick="water(1)">+ كوب مياه</button><button class="alt" onclick="water(-1)">- كوب</button></div><p class="muted">العداد للتسجيل فقط؛ احتياج المياه بيختلف من شخص للتاني.</p></div>
+</section>
+<section id="workouts" class="page hidden">
+<div class="panel"><h2>اختار مستوى التمرين</h2><select id="level"><option>مبتدئ</option><option>متوسط</option><option>متقدم</option></select><p class="muted">كل التمارين هنا منزلية وبدون أجهزة جيم.</p></div>
+<div class="panel"><h2>تمارين منزلية</h2><div id="exerciseList"></div></div>
+<div class="panel"><h2>شرح الحركة</h2><div class="demo"><div class="figure"><div class="bodyline"></div><div class="arm"></div><div class="arm r"></div><div class="leg"></div><div class="leg r"></div></div></div><b id="demoName">اختار تمرين لعرض الشرح</b><p id="demoText" class="muted">ابدأ بوضعية ثابتة، اتحرك ببطء وتحكم، وارجع لوضع البداية. أوقف التمرين لو حسيت بألم.</p><p class="muted">الرسمة دي توضيحية عامة متحركة وليست نموذجًا تشريحيًا دقيقًا لكل تمرين.</p></div>
+<div class="panel"><h2>مؤقت التمرين</h2><div class="timer" id="timer">00:30</div><div class="row"><button onclick="timerStart()">ابدأ</button><button class="alt" onclick="timerStop()">إيقاف</button><button class="alt" onclick="timerReset()">إعادة</button></div><p class="muted" id="timerMsg">اختار تمرين واضغط ابدأ.</p></div>
+<button onclick="finishWorkout()">خلصت التمرين ✓</button>
+</section>
+<section id="plan" class="page hidden">
+<div class="panel"><h2>جدول الأسبوع</h2><div id="week" class="week"></div><p class="muted">سجل اليوم بعد ما تخلص تمرينك.</p><button onclick="finishWorkout()">سجل تمرين النهارده</button></div>
+<div class="panel"><h2>ملخص الشهر</h2><div class="stat" id="monthCount">0 يوم</div><p class="muted">عدد الأيام المسجلة خلال الشهر الحالي.</p></div>
+</section>
+<section id="food" class="page hidden">
+<div class="panel"><h2>تسجيل وجبة</h2><label>اسم الوجبة</label><input id="mealName" placeholder="مثال: فطار"><label>السعرات التقديرية</label><input id="mealCalories" type="number" min="0" placeholder="مثال: 450"><label>البروتين بالجرام</label><input id="mealProtein" type="number" min="0" placeholder="مثال: 25"><button onclick="addMeal()">احفظ الوجبة</button><div class="grid"><div class="tile"><div class="muted">سعرات مسجلة اليوم</div><div class="stat" id="calStat">0</div></div><div class="tile"><div class="muted">بروتين مسجل</div><div class="stat" id="proteinStat">0</div></div></div><div id="mealList" class="muted"></div><p class="muted">الأرقام تقديرية وتعتمد على دقة البيانات اللي بتدخلها.</p></div>
+</section>
+<section id="progress" class="page hidden">
+<div class="panel"><h2>رحلتي</h2><label>وزنك الحالي بالكيلو</label><input id="weightInput" type="number" min="1" max="500" step=".1" placeholder="مثال: 70"><button onclick="saveWeight()">حفظ الوزن</button><p id="weightMessage" class="muted"></p><div class="grid"><div class="tile"><div class="muted">أيام التمرين</div><div class="stat" id="progressDays">0</div></div><div class="tile"><div class="muted">XP</div><div class="stat" id="progressXP">0</div></div></div></div>
+<div class="panel"><h2>إنجازاتك</h2><p id="achievements" class="muted">أول إنجاز ليك هيكون بعد تسجيل أول تمرين.</p></div>
+</section>
+<section id="settings" class="page hidden">
+<div class="panel"><h2>الإعدادات</h2><button class="alt" onclick="toggleTheme()">تغيير الوضع الليلي / النهاري</button><p class="muted">تغيير ألوان الواجهة الأساسي. تخصيص لون كل عنصر بشكل مستقل هيتضاف في مرحلة لاحقة.</p><label>تذكير التمرين (وقت مقترح)</label><input id="reminderTime" type="time"><button onclick="saveReminder()">حفظ وقت التذكير</button><p id="reminderMsg" class="muted">التذكير هنا يحفظ الوقت داخل التطبيق؛ لا يضمن تنبيهًا عند إغلاقه.</p><button class="alt" onclick="logout()">تسجيل خروج</button></div>
+</section>
+</div>
+</main><footer>ZIZO FITNESS · نسخة تجريبية محلية 2.0</footer>
+<script>
+const $=id=>document.getElementById(id),get=(k,d)=>JSON.parse(localStorage.getItem('zizo_'+k)||JSON.stringify(d)),put=(k,v)=>localStorage.setItem('zizo_'+k,JSON.stringify(v));
+const exercises=[
+['ضغط عادي','صدر وذراعين','3 جولات × 8-10','ابدأ بوضع اليدين تحت الكتفين والجسم مستقيمًا. انزل بتحكم ثم ادفع الأرض للعودة.'],
+['ضغط الحائط','صدر وذراعين','3 جولات × 10','قف أمام الحائط وضع كفيك عليه، اثنِ الكوعين ثم ادفع للرجوع.'],
+['سكوات','الرجلين','3 جولات × 12','القدمين بعرض الكتفين، ادفع الحوض للخلف وانزل بقدر مريح ثم قف.'],
+['لانجز خلفي','الرجلين','2 جولات × 8 لكل رجل','ارجع خطوة للخلف وانزل بتحكم مع ثبات الجذع ثم ارجع.'],
+['بلانك','البطن','3 جولات × 20 ثانية','اسند على الساعدين وأطراف القدمين وحافظ على الجسم في خط مستقيم.'],
+['جسر الحوض','المؤخرة','3 جولات × 12','استلقِ واثنِ الركبتين، ارفع الحوض ثم انزل ببطء.'],
+['بيرد دوج','الظهر والتوازن','2 جولات × 8 لكل جانب','من وضع الأربع، مد الذراع والرجل العكسيتين ثم بدّل.'],
+['ماونتن كلايمبرز','كارديو وبطن','3 جولات × 20 ثانية','من وضع الضغط، بدّل جذب الركبتين للأمام بإيقاع مناسب.'],
+['سوبرمان','الظهر','2 جولات × 10','استلقِ على البطن وارفع الذراعين والصدر والساقين قليلًا ثم انزل.'],
+['رفع السمانة','السمانة','3 جولات × 15','قف بثبات وارفع الكعبين ثم انزل ببطء.']
+];
+let selected=exercises[0],seconds=30,interval=null;
+function show(id){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));$(id).classList.remove('hidden');}
+function login(){let n=$('username').value.trim(),p=$('password').value;if(!n||p.length<4){alert('اكتب اسمك وكلمة مرور 4 حروف على الأقل');return}put('user',n);$('login').classList.add('hidden');$('app').classList.remove('hidden');$('welcome').textContent='أهلاً يا '+n+'، جاهز تتمرن؟';refresh()}
+function logout(){localStorage.removeItem('zizo_user');location.reload()}
+function init(){if(get('user',null)){$('login').classList.add('hidden');$('app').classList.remove('hidden');$('welcome').textContent='أهلاً يا '+get('user','بطل');refresh()}if(get('light',false))document.body.classList.add('light');}
+function renderExercises(){$('exerciseList').innerHTML=exercises.map((e,i)=>`<div class="exercise"><div><b>${e[0]}</b><small>${e[1]} · ${e[2]}</small></div><button class="small" onclick="chooseExercise(${i})">شرح التمرين</button></div>`).join('')}
+function chooseExercise(i){selected=exercises[i];$('demoName').textContent=selected[0];$('demoText').textContent=selected[3];$('timerMsg').textContent='تم اختيار '+selected[0];}
+function timerPaint(){$('timer').textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0')}
+function timerStart(){timerStop();interval=setInterval(()=>{seconds--;timerPaint();if(seconds<=0){timerStop();$('timerMsg').textContent='برافو! خُد راحة مناسبة.';alert('خلصت الجولة!')}},1000)}
+function timerStop(){if(interval)clearInterval(interval);interval=null}
+function timerReset(){timerStop();seconds=30;timerPaint()}
+function finishWorkout(){let a=get('workouts',[]),today=new Date().toISOString().slice(0,10);if(!a.includes(today))a.push(today);put('workouts',a);put('xp',get('xp',0)+20);refresh();alert('عاش يا بطل! اتسجل تمرين النهارده وكسبت 20 XP')}
+function water(n){let key=new Date().toISOString().slice(0,10),w=get('water',{});w[key]=Math.max(0,(w[key]||0)+n);put('water',w);refresh()}
+function saveWeight(){let v=Number($('weightInput').value);if(!v||v<1||v>500){alert('اكتب وزن صحيح');return}put('weight',v);$('weightMessage').textContent='تم حفظ الوزن: '+v+' كجم';refresh()}
+function addMeal(){let name=$('mealName').value.trim(),cal=Number($('mealCalories').value),pro=Number($('mealProtein').value);if(!name||cal<0||pro<0){alert('راجع بيانات الوجبة');return}let meals=get('meals',{}),d=new Date().toISOString().slice(0,10);meals[d]=meals[d]||[];meals[d].push({name,cal,pro});put('meals',meals);$('mealName').value='';$('mealCalories').value='';$('mealProtein').value='';refresh()}
+function saveReminder(){put('reminder',$('reminderTime').value);$('reminderMsg').textContent='تم حفظ الوقت داخل التطبيق: '+$('reminderTime').value+' — مش هيصدر تنبيه مضمون لو التطبيق مقفول.'}
+function toggleTheme(){let v=!get('light',false);put('light',v);document.body.classList.toggle('light',v)}
+function refresh(){let a=get('workouts',[]),now=new Date(),month=now.toISOString().slice(0,7),thisMonth=a.filter(x=>x.startsWith(month)).length;let offset=(now.getDay()+1)%7,days=['س','ح','ن','ث','ر','خ','ج'];$('week').innerHTML=days.map((d,i)=>{let x=new Date();x.setDate(x.getDate()-offset+i);let k=x.toISOString().slice(0,10);return `<div class="day ${a.includes(k)?'done':''}">${d}<br>${x.getDate()}</div>`}).join('');$('daysStat').textContent=a.filter(x=>{let xdate=new Date(x),start=new Date();start.setDate(start.getDate()-6);return xdate>=start}).length;$('monthCount').textContent=thisMonth+' يوم';$('weightStat').textContent=get('weight','--');$('waterStat').textContent=get('water',{})[new Date().toISOString().slice(0,10)]||0;$('xpStat').textContent=get('xp',0);$('progressDays').textContent=a.length;$('progressXP').textContent=get('xp',0);$('achievements').textContent=a.length>=1?'🏅 أول تمرين مكتمل! '+(a.length>=7?'🔥 بطل الالتزام: 7 أيام أو أكثر!':'استمر عشان تفتح إنجازات جديدة.'):'سجل أول تمرين عشان تفتح إنجازك الأول.';let meals=get('meals',{})[new Date().toISOString().slice(0,10)]||[];$('calStat').textContent=meals.reduce((s,m)=>s+m.cal,0);$('proteinStat').textContent=meals.reduce((s,m)=>s+m.pro,0)+' جم';$('mealList').innerHTML=meals.map(m=>`<p>${m.name}: ${m.cal} سعرة · ${m.pro} جم بروتين</p>`).join('')||'لسه مفيش وجبات مسجلة النهارده.';let rem=get('reminder','');if(rem)$('reminderTime').value=rem;}
+renderExercises();timerPaint();init();
+</script>
+</body></html>
