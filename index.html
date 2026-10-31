@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZIZO FITNESS</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#10131a;color:white}
+header{padding:25px;text-align:center;background:#171d29}
+h1{color:#00e6a0;font-size:30px}
+main{padding:18px}
+.card{background:#202938;padding:18px;margin:15px 0;border-radius:16px}
+button{background:#00d99a;color:#07150f;border:0;padding:12px 20px;border-radius:10px;font-weight:bold}
+input,select{width:100%;padding:13px;margin:8px 0;border-radius:9px;border:0}
+a{color:#00e6a0}
+</style>
+</head>
+<body>
+<header>
+<h1>ZIZO FITNESS</h1>
+<p>ابدأ رحلتك نحو جسم أقوى 💪</p>
+</header>
+<main>
+<div class="card">
+<h2>🏋️ جدول التمارين</h2>
+<p>اختار تمرينك وابدأ التحدي!</p>
+<button onclick="alert('يلا نبدأ التمرين!')">ابدأ التمرين</button>
+</div>
+<div class="card">
+<h2>📊 متابعة الوزن</h2>
+<input id="weight" type="number" placeholder="اكتب وزنك بالكيلو">
+<button onclick="saveWeight()">حفظ الوزن</button>
+<p id="result"></p>
+</div>
+<div class="card">
+<h2>⚙️ الإعدادات</h2>
+<button onclick="toggleTheme()">تغيير الوضع الليلي / النهاري</button>
+<br><br>
+<button onclick="toggleLang()">English / عربي</button>
+</div>
+</main>
+<script>
+function saveWeight(){
+let w=document.getElementById('weight').value;
+if(!w)return alert('اكتب وزنك الأول');
+localStorage.setItem('zizoWeight',w);
+document.getElementById('result').innerText='وزنك المحفوظ: '+w+' كجم';
+}
+function toggleTheme(){
+document.body.style.background=
+document.body.style.background==='white'?'#10131a':'white';
+document.body.style.color=
+document.body.style.color==='black'?'white':'black';
+}
+function toggleLang(){
+document.documentElement.lang=
+document.documentElement.lang==='ar'?'en':'ar';
+document.documentElement.dir=
+document.documentElement.dir==='rtl'?'ltr':'rtl';
+alert('تم تغيير اتجاه اللغة. باقي المحتوى لسه بالعربي.');
+}
+let saved=localStorage.getItem('zizoWeight');
+if(saved)document.getElementById('result').innerText='وزنك المحفوظ: '+saved+' كجم';
+</script>
+</body>
+  </html>
